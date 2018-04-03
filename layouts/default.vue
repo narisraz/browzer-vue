@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-toolbar dense>
+    <v-toolbar dense color="blue lighten-1">
       <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Browser</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -14,7 +14,6 @@
 
     <v-navigation-drawer
       absolute
-      temporary
       v-model="drawer"
     >
       <v-list dense>
@@ -29,9 +28,10 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
+    <v-container fluid>
+      <nuxt/>
+    </v-container>
 
-    <nuxt/>
-    
   </v-app>
 </template>
 
