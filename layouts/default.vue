@@ -2,7 +2,7 @@
   <v-app>
     <v-toolbar dense color="blue lighten-1">
       <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Browser</v-toolbar-title>
+      <v-toolbar-title>{{ $store.state.title }}</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon>search</v-icon>
@@ -28,9 +28,9 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-container fluid>
+    <div class="main">
       <nuxt/>
-    </v-container>
+    </div>
 
   </v-app>
 </template>
@@ -39,7 +39,7 @@
   export default {
     data() {
       return {
-        drawer: null,
+        drawer: false,
         menus: [
           { title: 'Memories', icon: '', target: '/memories' }
         ]
@@ -48,5 +48,9 @@
   }
 </script>
 
-<style lang="scss">
+<style>
+.main {
+  margin-top: 10px;
+  max-width: 700px;
+}
 </style>
