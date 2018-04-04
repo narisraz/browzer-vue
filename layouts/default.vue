@@ -13,14 +13,26 @@
     </v-toolbar>
 
     <v-navigation-drawer
+      temporary
       absolute
       v-model="drawer"
     >
+      <v-toolbar class="transparent">
+        <v-list class="pa-0">
+          <v-list-tile avatar to="/profile">
+            <v-list-tile-avatar>
+              <img src="https://wordsandvideos.com/wp-content/uploads/2016/12/common.png" >
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>John Doe</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+      </v-toolbar>
       <v-list dense>
-        <v-divider light></v-divider>
         <v-list-tile v-for="menu in menus" :key="menu.title" :to="menu.target" @click.stop="() => drawer = !drawer">
           <v-list-tile-action>
-            <v-icon>{{ menu.icon }}</v-icon>
+            <v-icon color="pink darken-1">{{ menu.icon }}</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>{{ menu.title }}</v-list-tile-title>
@@ -41,7 +53,7 @@
       return {
         drawer: false,
         menus: [
-          { title: 'Memories', icon: '', target: '/memories' }
+          { title: 'Memories', icon: 'memory', target: '/memories' }
         ]
       }
     }
